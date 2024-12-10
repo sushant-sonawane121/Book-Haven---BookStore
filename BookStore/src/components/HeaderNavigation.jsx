@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router";
+import { IoIosArrowDown,IoIosArrowUp } from "react-icons/io";
 
 function HeaderNavigation() {
   return (
@@ -14,10 +15,14 @@ function HeaderNavigation() {
 
         {/* Categories Dropdown */}
         <li className="relative group">
-          <button className="hover:text-cyan-500 transition flex items-center">
-            Categories
+          <button className="hover:text-cyan-500 transition flex items-center gap-1">
+            <p>Categories</p>
+            <span>
+              <IoIosArrowDown className="text-sm mt-1 group-hover:hidden" />
+              <IoIosArrowUp className="text-sm mt-1 hidden group-hover:block" />
+            </span>
           </button>
-          <ul className="absolute left-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-48 z-10 opacity-0 group-hover:opacity-100 group-hover:block transition-opacity hidden">
+          <ul className="absolute left-0 bg-white text-gray-800 shadow-lg rounded-lg w-48 z-10 opacity-0 group-hover:opacity-100 group-hover:block transition-opacity hidden">
             <li>
               <NavLink
                 to="/fiction"
