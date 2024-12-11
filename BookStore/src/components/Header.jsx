@@ -2,16 +2,19 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router";
 import { FaBars, FaSun, FaMoon, FaShoppingCart } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-
+import { useSelector } from "react-redux"; 
 
 import HeaderOptions from "./HeaderOptions";
 import HeaderNavigation from "./HeaderNavigation";
 
 export default function Header() {
+  // Get the login state from Redux store
+  const isUserLoged = useSelector((state) => state.auth.isLoggedIn);  // Accessing the `isLoggedIn` state from the Redux store
+
+
   const [isDark, setIsDark] = useState(localStorage.getItem("dark") === "true");
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
   const [scrolly, setScrollY] = useState(false);
-  const isUserLoged = true;
 
   const toggleNavMenu = () => setIsNavMenuOpen(!isNavMenuOpen);
 
@@ -22,6 +25,9 @@ export default function Header() {
       document.documentElement.classList.remove("dark");
     }
     localStorage.setItem("dark", isDark);
+
+
+   
   }, [isDark]);
 
   const toggleTheme = () => {
@@ -45,7 +51,6 @@ export default function Header() {
         scrolly ? "sticky bg-gray-100" : ""
       } top-0 left-0 right-0`}
     >
-     
       <div className="flex justify-between items-center py-3">
         <div>
           <NavLink to="/">
