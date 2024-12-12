@@ -8,7 +8,10 @@ const bookSchema = new mongoose.Schema(
     price: { type: Number, required: true },
     stock: { type: Number, default: 0 },
     category: { type: String, required: true },
-    coverImage: { type: String }, // URL for book cover
+    coverImage: {
+      data: Buffer,
+      contentType: String,
+    },
     ratings: [
       {
         user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
@@ -20,4 +23,5 @@ const bookSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Book", bookSchema);
+const Book = mongoose.model("Book", bookSchema);
+export default Book;

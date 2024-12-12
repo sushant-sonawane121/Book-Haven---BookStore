@@ -83,7 +83,7 @@ function Login() {
             theme: "dark",
           });
         } else {
-          toast.error("An unexpected error occurred. Please try again later.", {
+          toast.error(data.message, {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -96,7 +96,7 @@ function Login() {
         }
       } catch (error) {
         console.error("Error:", error);
-        toast.error("An unexpected error occurred. Please try again later.", {
+        toast.error(error.message, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,

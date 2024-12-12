@@ -5,6 +5,7 @@ const initialState = {
   isLoggedIn: localStorage.getItem("token") ? true : false,
   id: localStorage.getItem("userID") || null,
   isAdmin: localStorage.getItem("isAdmin") || false,
+  token: localStorage.getItem("token") || null,
   //   userImage: localStorage.getItem("userImage") || null,
 };
 
@@ -18,6 +19,7 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.id = id;
       state.isAdmin = isAdmin;
+      state.token = token;
       //   state.userImage = userImage;
 
       // Persist user data to localStorage
