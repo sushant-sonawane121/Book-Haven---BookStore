@@ -6,6 +6,7 @@ const bookSchema = new mongoose.Schema(
     author: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true },
+    discountPrice: { type: Number, default: 0 },
     stock: { type: Number, default: 0 },
     category: { type: String, required: true },
     coverImage: {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaUsers, FaBook, FaShoppingCart, FaBars, FaChevronDown } from "react-icons/fa";
 import AddBooks from "./AddBooks";
+import ManageBooks from "./ManageBooks";
 
 const Dashboard = () => {
   const [activePage, setActivePage] = useState("allCustomers");
@@ -13,8 +14,8 @@ const Dashboard = () => {
         return <div className="p-4 text-white">All Customers Page</div>;
       case "addBook":
         return <AddBooks />;
-      case "showAllBooks":
-        return <div className="p-4 text-white">Show All Books Page</div>;
+      case "manageBooks":
+        return <ManageBooks/>;
       case "seeOrders":
         return <div className="p-4 text-white">See Orders Page</div>;
       default:
@@ -76,10 +77,10 @@ const Dashboard = () => {
                   Add Book
                 </button>
                 <button
-                  onClick={() => setActivePage("showAllBooks")}
+                  onClick={() => setActivePage("manageBooks")}
                   className="p-4 w-full text-white text-left hover:bg-slate-500"
                 >
-                  Show All Books
+                 Manage Books
                 </button>
               </div>
             )}
@@ -98,7 +99,7 @@ const Dashboard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-slate-900 p-4 overflow-y-auto">{renderPage()}</div>
+      <div className="flex-1 bg-slate-900 p-4 overflow-y-auto no-scrollbar">{renderPage()}</div>
     </div>
   );
 };
